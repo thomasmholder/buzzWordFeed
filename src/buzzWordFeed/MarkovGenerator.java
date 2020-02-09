@@ -40,7 +40,7 @@ public class MarkovGenerator {
 	/**
 	 * 	Generates text using a randomly chosen first gram and probability lists of following grams
 	 */
-	public void generateText(int length, String fileName) {
+	public void generateText(int length, String fileName, boolean printToFile) {
 		String text = chooseStartingGram();
 		
 		boolean whiteSpace = false;
@@ -54,8 +54,12 @@ public class MarkovGenerator {
 			}
 		}
 		
-		printToFiles(text, fileName);
-//		System.out.println(text);
+		if(printToFile) {
+			printToFiles(text, fileName);
+		}
+		else {
+			System.out.println(text);
+		}
 		
 	}
 	
